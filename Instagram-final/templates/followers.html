@@ -1,0 +1,66 @@
+{%  load staticfiles %}
+<!DOCTYPE HTML>
+{% block html %}
+<html ng-cloak ng-app="appFollowers">
+{%  endblock %}
+  <head>
+    <title>Instagram</title>
+    <link rel="stylesheet" href="{% static "css/fol-style.css" %}" />
+    <script src="{% static "js/angular source/angular.min.js" %}"></script>
+    <script src="{% static "js/jquery-1.11.2.js" %}"></script>
+    <script src="{% static "js/angular source/angular-route.js" %}"></script>
+    <script src="{% static "js/angular source/angular-resource.min.js" %}"></script>
+    <script  src="{% static "js/app.api.js" %}" ></script>
+    <script  src="{% static "js/app.auth.js" %}" ></script>
+    <script src="{% static "js/app.followers.js" %}"></script>
+  </head>
+  <body>
+    {% block controller %}
+    {% verbatim %}
+    <div id="main" ng-controller="followersController">
+      {% endverbatim %}
+      {% endblock %}
+      <div id="header">
+        <div id="headerblock">
+          <a href="/feed" id="buttonhome">
+            <img src="{% static "images/home.png"%}" alt="home" width="30px"  id="homepic"/>
+          </a>
+          <div id="logo">
+            <a href="/">
+              <img src="{% static "images/instmephi.png" %}" width="180px" id="instmephi">
+            </a>
+          </div>
+          <a  id="buttonprofile" >
+            <p id="buttonprofiletext">{{ auth__user.username }}</p>
+            {% verbatim %}
+            <img ng-src="{{ auth_user.avatar }}" width="30px" height="30px" id="miniava"/>
+            {% endverbatim %}
+          </a>
+          <div id="menu">
+            <a href="/users/{{ auth__user.username }}"><p class="menu_point">Посмотреть профиль</p></a>
+            <a href="/search" ><p class="menu_point">Найти пользователя</p></a>
+            <a href="/allphotos"  ><p class="menu_point">Лента фотографий</p></a>
+            <a href="#"  ng-click="logout()"><p class="menu_point">Выйти</p></a>
+          </div>
+        </div>
+      </div>
+      {% block title %}
+      <p id="title">Подписчики <span id="title_user">{{ username }}</span></p>
+      {% endblock %}
+      {% block follow %}
+      {% verbatim %}
+      <div id="follow">
+        <p ng-if="followers.results.length == 0" id="empty">У данного пользователя еще нет подписчиков.</p>
+        <div class="block" ng-repeat-start="follower in followers.results ">
+          <a href="/users/{{ follower.username }}">
+            <img ng-src="{{ follower.avatar }}" width="40px" height="40px" class="ava" />
+          </a>
+          <a href="/users/{{ follower.username }}"><p class="username">{{ follower.username }}</p></a>
+        </div>
+        <span ng-repeat-end></span>
+      </div>
+      {% endverbatim %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+.dropfile
+{
+    border:2px solid #FFB800;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+#loadphoto
+{
+    position: relative;
+    bottom: 300px;
+    left: 300px;
+}
+
+#breakbutton:focus
+{
+    outline: none;
+    border:2px solid #FFB800;
+}
+
+#breakbutton
+{
+    width: 100px;
+    height: 35px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #FBCD71;
+    position: relative;
+    left: 105px;
+    bottom: 50px;
+}
+#fileinput
+{
+    position: relative;
+    left: 105px;
+    top: 40px;
+    background-color: #F7BA42;
+}
+
+#breakbutton:hover
+{
+    background-color: #FBEA96;
+}
+
+#dropavatar
+{
+    z-index: -33;
+    overflow: hidden;
+    background-image: url('../images/load.gif');
+	background-repeat: no-repeat;
+	background-position: 55px 45px;
+
+}

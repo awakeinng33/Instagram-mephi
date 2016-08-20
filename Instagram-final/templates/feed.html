@@ -1,0 +1,131 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html  ng-cloak ng-app="appFeed">
+  <head>
+    <title>Instagram</title>
+    <meta name="" content="">
+    <link rel="stylesheet" href="{% static "css/stylelenta.css" %}"/>
+    <script src="{% static "js/angular source/angular.min.js" %}"></script>
+    <script src="{% static "js/angular source/angular-route.js" %}"></script>
+    <script src="{% static "js/angular source/angular-resource.min.js" %}"></script>
+    <script src="{% static "js/jquery-1.11.2.js" %}"></script>
+    <script  src="{% static "js/app.api.js" %}" ></script>
+    <script  src="{% static "js/app.auth.js" %}" ></script>
+    <script src="{% static "js/app.feed.js" %}"></script>
+    <script  src="{% static "js/angular source/autofill-event.js" %}" ></script>
+  </head>
+  <body>
+    {% verbatim %}
+    <div id="main" ng-controller="feedController">
+      {% endverbatim %}
+      <div id="header">
+        <div id="headerblock">
+          <a id="buttonhome">
+            <img src="{% static "images/home.png"%}" alt="home" width="30px"  id="homepic"/>
+          </a>
+          <div id="logo">
+            <a href="/">
+              <img src="{% static "images/instmephi.png" %}" width="180px" id="instmephi">
+            </a>
+          </div>
+          <a id="buttonprofile">
+            <p id="buttonprofiletext">{{ auth__user.username }}</p>
+              {% verbatim %}
+              <img ng-src="{{ auth_user.avatar }}" width="30px" height="30px" id="miniava"/>
+              {% endverbatim %}
+          </a>
+          <div id="menu">
+            <a href="/users/{{ auth__user.username }}"><p class="menu_point">Посмотреть профиль</p></a>
+            {% verbatim %}
+            <a href="/search"  ><p class="menu_point">Найти пользователя</p></a>
+            <a href="/allphotos" ng-click="allPhotos()" ><p class="menu_point">Лента фотографий</p></a>
+            <a href="#" ng-click="logout()" ><p class="menu_point">Выйти</p></a>
+            {% endverbatim %}
+          </div>
+        </div>
+      </div>
+      {% verbatim %}
+      <div id="tape">
+        <div class="block"  ng-repeat-start="photo in photo_list">
+          <div class="sender">
+            <a href="/users/{{ photo.user.username }}"><img ng-src="{{photo.user.avatar }}"  width="40px" height="40px" alt="photosender" class="photosender"/></a>
+            <a href="/users/{{ photo.user.username }}" ><p class="sendername">{{ photo.user.username }}</p></a>
+            <p class="photodata">{{photo.data}}</p>
+          </div>
+          <div class="fotoblock">
+            <img alt="foto" class="foto" ng-src="{{ photo.image }}" />
+            <span ng-hide="true">{{ photo.id }}</span>
+          </div>
+          <div class="likes" id="{{ photo.id }}">
+            {% endverbatim %}
+            <img id="like" src="{% static "images/like2.png" %}" ng-click="addLike(photo.id,0)" width="25px" height="25px">
+            {% verbatim %}
+            <span ng-hide="true" id="auth_user">{{ auth_user.username }}</span>
+            <p class="likecounttext"> Понравилось:<span id="likecount" ng-init="likecount[photo.id]=photo.likes" ng-bind="likecount[photo.id]"></span></p>
+            {% endverbatim %}
+            <img id="dislike" src="{% static "images/dislike2.png" %}" ng-click="addLike(photo.id,1)" width="25px" height="25px">
+            {% verbatim %}
+            <p class="dislikecounttext"> Не понравилось :<span id="dislikecount" ng-init="dislikecount[photo.id]=photo.dislikes" ng-bind="dislikecount[photo.id]"> </span></p>
+            <div class="more" ng-click="openmore(photo.id)">
+              {% endverbatim %}
+              <img src="{% static "images/points2.png" %}" class="morepoints">
+              {% verbatim %}
+            </div>
+          </div>
+          <div class="alllikes">
+            <table>
+              <tr>
+                <td>
+                  <p class="moretitle">Понравилось:</p>
+                </td>
+                <td>
+                  <p class="moretitle">Не понравилось:</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="moreleft">
+                  <p class="likesname" >
+                    <a class="userref" href="/users/{{ name.username }}"  ng-repeat="name in likename[photo.id]">{{ name.username }}<span ng-if="$index!=likename[photo.id].length-1">,</span></a>
+                  </p>
+                </td>
+                <td class="moreright">
+                  <p class="likesname" >
+                    <a class="userref" href="/users/{{ name.username }}"  ng-repeat="name in dislikename[photo.id]">{{ name.username }}<span ng-if="$index!=dislikename[photo.id].length-1">,</span></a>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="allcomments" id="allcomments{{photo.id}}" >
+            <div class="comment" ng-repeat-start="comment in all_comments.results" ng-if="comment.image.id == photo.id">
+              <a href="/users/{{comment.username}}" ><img ng-src="{{comment.user.avatar}}" width="25px" height="25px" alt="photosender" class="photocommentsender"/></a>
+              <p class="commenttext">
+                <a href="/users/{{comment.username}}" ><span class="sendercommentname"  id="commentblock">{{ comment.username }}:</span></a>{{ comment.comment }}
+              </p>
+              <p class="commentdate">{{ comment.data }}</p>
+            </div>
+            <span ng-repeat-end></span>
+            <div class="comment" ng-repeat-start="comment in new_comments" ng-if="comment.image.id == photo.id">
+              <a href="/users/{{comment.username}}" ><img ng-src="{{comment.user.avatar}}" width="25px" height="25px" alt="photosender" class="photocommentsender"/></a>
+              <p class="commenttext">
+                <a href="/users/{{comment.username}}" ><span class="sendercommentname"  id="commentblock">{{ comment.username }}:</span></a>{{ comment.comment }}
+              </p>
+              <p class="commentdate">{{ comment.data }}</p>
+            </div>
+            <span ng-repeat-end></span>
+          </div>
+          <div class="commentfield">
+            <form id="commentform{{photo.id}}"  name="test" method="post" enctype="multipart/form-data" ng-submit="addComment(photo.id,c,auth_user)">
+              <input id="comment_text" ng-model="c" type="text" placeholder="Написать комментарий..." maxlength="200"/>
+            </form>
+          </div>
+        </div>
+        <span ng-repeat-end></span>
+        {% endverbatim %}
+        <div id="buttonLoadMore" ng-click="loadPhoto()" ng-if="!buttonload">
+          <p id="buttonLoadMoreText">Загрузить еще</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

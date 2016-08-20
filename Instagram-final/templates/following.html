@@ -1,0 +1,25 @@
+{% extends "followers.html" %}
+{% block html %}
+<html ng-cloak ng-app="appFollowers">
+  {%  endblock %}
+  {% block title %}
+  <p id="title">Подписки <span id="title_user">{{ username }}</span></p>
+  {% endblock %}
+  {% block controller %}
+  {% verbatim %}
+  <div id="main" ng-controller="followersController">
+    {% endverbatim %}
+    {% endblock %}
+    {% block follow %}
+    {% verbatim %}
+    <div id="follow">
+      <p ng-if="following.results.length == 0" id="empty">У данного пользователя еще нет подписок.</p>
+      <div class="block" ng-repeat-start="follow in following.results ">
+        <a href="/users/{{ follow.username }}"><img ng-src="{{ follow.avatar }}" width="40px" height="40px" class="ava"/></a>
+        <a href="/users/{{ follow.username }}"><p class="username">{{ follow.username }}</p></a>
+      </div>
+      <span ng-repeat-end></span>
+    </div>
+  </div>
+{% endverbatim %}
+{% endblock %}

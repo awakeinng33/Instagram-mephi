@@ -1,0 +1,475 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	line-height: 15px;
+}
+
+a
+{
+	color: black;
+	text-decoration: none;
+	
+}
+
+#menu
+{
+    width: 200px;
+    height:140px;
+    position: relative;
+    top:-102px;
+    left:800px;
+    display: none;
+
+}
+
+.menu_point
+{
+    border: 1px solid #FFB800;
+    margin-top: 2px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    background-color:#FBFFE7;
+    border-radius: 7px;
+}
+
+.menu_point:hover
+{
+    background-color: #FDD995;
+}
+body
+{
+	margin: auto;
+	min-width: 1000px;
+	font-family: Arial,sans-serif;
+	background: linear-gradient(to bottom, #FBEA96, #CDCDCD) no-repeat;
+    background-attachment: fixed;
+}
+
+#main
+{
+	height: auto;
+	min-height: 641px;
+
+}
+
+#header
+{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #FFB800;
+	background: linear-gradient(to top, #FBCD71, #F7BA42);
+	-webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
+	-moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	z-index: 3;
+	position: relative;
+}
+
+#tape
+{
+	position: relative;
+	border-left: 1px #FFB800 solid;
+	border-right: 1px #FFB800 solid;
+	border-top: 1px #FBFFE7 solid;
+	border-bottom: 1px #FFB800 solid;
+	height: auto;
+	width: 550px;
+	margin: auto;
+	margin-top: -5px;
+    margin-bottom: 40px;
+	background-color: #FBFFE7 ;
+	z-index: 2;
+}
+
+.block
+{
+	position: relative;
+	border: 1px #D7DAD3 solid;
+	background-color: white;
+	min-height: 580px;
+	height: auto;
+	width: 480px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 60px;
+	-webkit-box-shadow:0px 5px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px 5px 5px rgba(0,0,0,0.5);
+	box-shadow: 0px 5px 5px  rgba(0,0,0,0.5);
+}
+.sender
+{
+	
+	height: 50px;
+	width: 720px;
+	margin-left: -210px;
+	
+	
+}
+
+.foto
+{
+	
+	max-height: 480px;
+	max-width: 480px;
+	min-height: 200px;
+	min-width: 200px;
+	display:block; 
+	margin:0 auto;
+ 
+}
+.likes
+{
+	border-bottom: 1px solid #FFB800;
+	border-top: 1px solid #FFB800;
+	height: 40px;
+	position: relative;
+	top: -50px;
+	background-color: #FDD995;
+	
+}
+
+
+.fotoblock
+{
+	border-bottom: 1px solid #D7DAD3;
+	position: relative;
+	top: -50px;
+	width: 480px;
+	height: 480px;
+	display: table-cell;
+	vertical-align: middle;
+	background-image:url('../images/loadBig.gif');
+	background-repeat: no-repeat;
+	background-position-x: 210px;
+	background-position-y: 210px;
+}
+#headerblock
+{
+	height:50px;
+	width:1000px;
+	margin:auto;
+}
+#buttonhome
+{
+	display: block;
+	height:50px;
+	width:50px;
+	border-left: 1px solid #FFB800;
+	border-right: 1px solid #FFB800;
+	background-color:#FDD995;
+}
+
+
+#logo
+{
+	height:50px;
+	width:300px;
+	position: relative;
+	top: -52px;
+	left:350px;
+	
+}
+
+#buttonprofile
+{
+	display: block;
+	height:50px;
+	width:170px;
+	position: relative;
+	top: -100px;
+	left:830px;
+	border-left: 1px solid #FFB800;
+	border-right: 1px solid #FFB800;
+	cursor: pointer;
+}
+
+#buttonprofile:hover~#menu,#menu:hover
+{
+    display: block;
+}
+
+#buttonprofile:hover
+{
+	background-color:#FDD995;
+	text-decoration:underline;
+	color:black;
+
+}
+
+
+
+
+#homepic
+{
+	margin-left: 11px;
+	margin-top: 11px;
+}
+
+#instmephi
+{
+	margin-top:5px; /*#8b3535*/
+	margin-left:50px;
+}
+
+#buttonprofiletext
+{
+	padding-top:17px;
+	text-align:right;
+	padding-right:9px;
+	font-size: 15px;
+	font-weight: bold;
+	color:black;
+}
+
+#miniava
+{
+	margin-top:-25px;
+	margin-left:15px;
+	border: 1px solid #BFBFBF;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.photosender
+{
+	border: 1px solid #BFBFBF;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	position: relative;
+	left: 115px;
+}
+
+.sendername
+{
+	width: 120px;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: right;
+	position: relative;
+	top: -38px;
+	left: -15px;
+	color: #8b3535;
+}
+
+.sendername:hover
+{
+	text-decoration: underline;
+}
+
+.photodata
+{
+	width: 120px;
+	font-size: 13px;
+	font-weight: bold;
+	color: grey;
+	text-align: right;
+	position: relative;
+	top: -38px;
+	left: -15px;
+}
+
+input
+{
+	width: 450px;
+	height: 32px;
+	margin-top: 14px;
+	margin-left: 15px;
+	
+}
+
+input:focus
+{
+	outline: none;
+	border:2px solid #FFB800;
+}
+
+.commentfield
+{
+	margin-top: 10px;
+	height: 60px;
+	
+}
+.allcomments
+{
+	margin-top: -50px;
+	max-height: 350px;
+	overflow: auto;
+	font-size: 12px;
+    word-wrap: break-word;
+	
+}
+
+.photocommentsender
+{
+	border: 1px solid #BFBFBF;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.comment
+{
+	
+	height: auto;
+    min-height: 50px;
+}
+
+.sendercommentname
+{
+	
+	font-weight: bold;
+	color:#8b3535;
+	
+}
+
+.commenttext
+{
+	
+	margin-top: -22px;
+	margin-left: 55px;
+    position: relative;
+
+}
+
+
+#commentblock:hover
+{
+    text-decoration: underline;
+}
+
+.commentdate
+{
+    text-align: right;
+    color: #8b3535;
+}
+
+.alllikes
+{
+
+    height: auto;
+    position: relative;
+    top: -50px;
+    background-color: #FBFFE7;
+    display: none;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.more
+{
+    border-left: 1px #FFB800 solid;
+    border-right: 1px #FFB800 solid;
+    height: 38px;
+    width:50px;
+    margin-top: 2px;
+    margin-left: 428px;
+}
+
+.more:hover
+{
+    cursor: pointer;
+    background-color: #FBFFE7;
+}
+
+
+
+.moretitle
+{
+    text-align: center;
+    padding-top: 5px;
+}
+
+.likesname
+{
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 35px;
+}
+
+.userref:hover
+{
+    text-decoration: underline;
+}
+
+table
+{
+    width: 480px;
+}
+
+td
+{
+    width: 240px;
+}
+
+#buttonLoadMore
+{
+    border: 1px solid #BFBFBF;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    width: 200px;
+    height: 50px;
+    margin-left: 175px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    background-color: #FDD995;
+    cursor: pointer;
+}
+#buttonLoadMore:hover
+{
+    background-color: #FFB800;
+}
+
+#buttonLoadMoreText
+{
+    text-align: center;
+    font-size: 25px;
+    color: grey;
+    margin-top: 15px;
+}
+
+.morepoints
+{
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+#like
+{
+    position: absolute;
+    top: 6px;
+    left:8px;
+    cursor: pointer;
+}
+
+#dislike
+{
+    position: absolute;
+    top: 6px;
+    left:200px;
+    cursor: pointer;
+}
+
+.likecounttext
+{
+    position: absolute;
+    top: 13px;
+    left: 35px;
+    width: 160px;
+}
+.dislikecounttext
+{
+    position: absolute;
+    top: 13px;
+    left: 230px;
+    width: 190px;
+
+}

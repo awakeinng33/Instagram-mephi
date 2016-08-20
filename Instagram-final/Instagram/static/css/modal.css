@@ -1,0 +1,332 @@
+/* Убираем полосу прокрутки у всего документа */
+/*
+body
+	{
+	    overflow: hidden;
+	    font-family : "Arial", sans-serif;
+	}
+*/
+/* Устанавливаем полосу прокрутки у основной части страницы */
+/*
+.body
+	{
+	    height: 100%;
+	    width: 100%;
+	    overflow: auto;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+*/
+
+/* Устанавливаем свойства тумана */
+	.fog
+	{
+	    width: 100%;
+	    background-color: #c0c0c0;
+        background-attachment: fixed;
+	    opacity: 0.5;
+	    display: none;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	}
+/* Устанавливаем свойства модального окна, в т.ч. прокрутку,
+которая будет отображаться вместо прокрутки для дива .body */
+	.body2
+	{
+	    width: 100%;
+	    height: 100%;
+	    overflow: auto;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    display: none;
+	    z-index: 999;
+	}
+/* Устанавливаем свойства дива, в котором показывается контент модального окна */
+	.infog
+	{
+	    background: #FBFFE7;
+	    border: 1px solid #FFB800;
+	    width: 1000px;
+        height: 550px;
+	    margin: 0 auto;
+	    position: relative;
+	    top: 50px;
+	    box-shadow:0px 1px 3px rgba(0,0,0,.75);
+	    -moz-box-shadow:0px 1px 3px rgba(0,0,0,.75);
+	    -webkit-box-shadow:0px 1px 3px rgba(0,0,0,.75);
+	    z-index: 999;
+	}
+    #imagemodal
+    {
+        max-height: 550px;
+	    max-width: 550px;
+	    display:block;
+ 	    margin: auto;
+ 	    border:none;
+    }
+
+    .buttonclose
+    {
+        background-color: red;
+        width: 5px;
+        height: 5px;
+
+
+    }
+
+    #fotoBigBlock
+    {
+        width: 550px;
+        height: 550px;
+        background-color: white;
+        display: table-cell;
+	    vertical-align: middle;
+    }
+
+    #bigFotoInfo
+    {
+        height: 550px;
+        width: 450px;
+        background-color: white;
+        position: absolute;
+        top: 0px;
+        left: 550px;
+        border-left: 1px grey solid;
+    }
+
+    #bigFotoUserInfo
+    {
+        border-bottom:1px grey solid;
+        height: 70px;
+        -webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.2);
+        -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.2);
+        box-shadow: 0px 2px 2px  rgba(0,0,0,0.2);
+    }
+
+    #bigFotoUserInfoAva
+    {
+        margin-top: 15px;
+        margin-left: 15px;
+        border: 1px solid #BFBFBF;
+	    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+        -moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+        box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    }
+
+    #bigFotoUserInfoUsername
+    {
+        color: #8b3535;
+        font-size: 20px;
+        margin-top: -37px;
+        margin-left: 70px;
+        text-align: left;
+    }
+
+    #bigFotoUserInfoData
+    {
+        color: grey;
+        font-weight: bold;
+        font-size: 15px;
+        margin-top: 8px;
+        margin-left: 70px;
+        text-align: left;
+    }
+
+    .bigFotoLikes
+    {
+        border-bottom: 1px solid #FFB800;
+	    border-top: 1px solid #FFB800;
+        height: 45px;
+        background-color: #FDD995;
+
+    }
+
+    .more
+    {
+        border-left: 1px #FFB800 solid;
+        border-right: 1px #FFB800 solid;
+        height: 45px;
+        width:50px;
+        margin-top: 0px;
+        margin-left: 398px;
+    }
+
+    .more:hover
+    {
+        cursor: pointer;
+        background-color: #FBFFE7;
+    }
+
+        .moretitle
+    {
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    .likesname
+    {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 35px;
+    }
+
+    .userref:hover
+    {
+        text-decoration: underline;
+    }
+
+    table
+    {
+        width: 450px;
+    }
+
+    td
+    {
+        width: 225px;
+    }
+
+        .alllikes
+    {
+
+        height: auto;
+        position: absolute;
+        top: 117px;
+        background-color: #FBFFE7;
+        display: none;
+        font-weight: bold;
+        font-size: 15px;
+        z-index: 1000;
+
+    }
+
+        .allcomments
+    {
+
+        max-height: 374px;
+        height: auto;
+        font-size: 12px;
+        overflow: auto;
+        word-wrap: break-word;
+    }
+
+        input
+    {
+        width: 400px;
+        height: 32px;
+        margin-left: 23px;
+        margin-top: 10px;
+    }
+
+        .commentfield
+    {
+        position: absolute;
+        top: 493px;
+        height: 55px;
+        width: 450px;
+        border-top: 1px grey solid;
+    }
+
+    input:focus
+    {
+        outline: none;
+        border:2px solid #FFB800;
+    }
+
+        .photocommentsender
+    {
+        border: 1px solid #BFBFBF;
+        -webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+        -moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+        box-shadow: 0 0 4px rgba(0,0,0,0.4);
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+
+        .sendercommentname
+    {
+
+        font-weight: bold;
+        color:#8b3535;
+
+    }
+
+    .commenttext
+    {
+
+        margin-top: -22px;
+        margin-left: 55px;
+        position: relative;
+    }
+
+        .comment
+    {
+
+        height: auto;
+        min-height: 50px;
+    }
+
+        .commentdate
+    {
+        text-align: right;
+        color: #8b3535;
+    }
+
+        .morepoints
+{
+    margin-top: 4px;
+    margin-left: 2px;
+}
+
+#like
+{
+    position: absolute;
+    top: 82px;
+    left:8px;
+    cursor: pointer;
+}
+
+#dislike
+{
+    position: absolute;
+    top: 82px;
+    left:200px;
+    cursor: pointer;
+}
+
+.likecounttext
+{
+    position: absolute;
+    top: 89px;
+    left: 35px;
+    width: 160px;
+}
+.dislikecounttext
+{
+    position: absolute;
+    top: 89px;
+    left: 230px;
+    width: 190px;
+
+}
+
+/* Чтобы не рисовать картинку кнопки, которая будет менять фон, я сделал небольшой div,
+который будет изменяться на div .fonact  при смене фона и обратно */
+
+/* Кнопка с картинкой крестиком */
+	.close
+	{
+	    width: 42px;
+	    height: 42px;
+	    position: absolute;
+	    top: 45px;
+	    right: 50px;
+	}
+
+    .usref:hover
+    {
+        text-decoration: underline;
+        color: #8b3535;
+    }

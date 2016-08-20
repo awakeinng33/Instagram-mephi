@@ -1,0 +1,26 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="{% static "css/register.css" %}">
+  </head>
+  <body>
+    <div id="main" ng-controller="authController">
+      <div id="header">
+        <div id="headerblock">
+          <div id="logo">
+            <a href="/">
+              <img src="{% static "images/instmephi.png" %}" width="180px" id="instmephi">
+            </a>
+          </div>
+        </div>
+      </div>
+      <p>
+        <h3 id="confirmtext">Ваш аккаунт успешно активирован! Нажмите на <a href="/api/auth">ссылку</a> и зайдите в свой профиль!</h3>
+      </p>
+    </div>
+  </body>
+</html>

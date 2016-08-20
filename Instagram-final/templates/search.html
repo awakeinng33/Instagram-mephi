@@ -1,0 +1,60 @@
+{%  load staticfiles %}
+<!DOCTYPE HTML>
+<html ng-cloak ng-app="appProfile">
+  <head>
+    <title>Instagram</title>
+    <link rel="stylesheet" href="{% static "css/fol-style.css" %}" />
+    <script src="{% static "js/angular source/angular-file-upload-shim.min.js" %}"></script>
+    <script src="{% static "js/angular source/angular.min.js" %}"></script>
+    <script src="{% static "js/angular source/angular-file-upload.min.js" %}"></script>
+    <script src="{% static "js/jquery-1.11.2.js" %}"></script>
+    <script src="{% static "js/angular source/angular-route.js" %}"></script>
+    <script src="{% static "js/angular source/angular-resource.min.js" %}"></script>
+    <script  src="{% static "js/app.profile.js" %}" ></script>
+    <script  src="{% static "js/app.api.js" %}" ></script>
+    <script  src="{% static "js/app.auth.js" %}" ></script>
+  </head>
+  <body>
+    {% block controller %}
+    {% verbatim %}
+    <div id="main" ng-controller="profileController">
+      {% endverbatim %}
+      {% endblock %}
+      <div id="header">
+        <div id="headerblock">
+          <a href="/feed" id="buttonhome">
+            <img src="{% static "images/home.png"%}" alt="home" width="30px"  id="homepic"/>
+          </a>
+          <div id="logo">
+             <a href="/">
+                 <img src="{% static "images/instmephi.png"%}" alt="instagrammephi" width="180px"  id="instmephi"/>
+            </a>
+          </div>
+          <a  id="buttonprofile" >
+            {% verbatim %}
+            <p id="buttonprofiletext">{{ auth_user.username }}</p>
+            <img ng-src="{{ auth_user.avatar }}" width="30px" height="30px" id="miniava"/>
+          </a>
+          <div id="menu">
+            <a href="/users/{{ auth_user.username }}"><p class="menu_point">Посмотреть профиль</p></a>
+            <a href="/allphotos" ><p class="menu_point">Лента фотографий</p></a>
+            <a href="#"  ng-click="logout()"><p class="menu_point">Выйти</p></a>
+          </div>
+        </div>
+      </div>
+      <p id="title"><span id="title_user">Пользователи</span></p>
+      <div id="follow">
+        <p ng-if="" id="empty">В базе нет пользователей</p>
+        <input id="input-search" type="text" placeholder="Имя пользователя" ng-model="query" maxlength="30">
+        <div class="block" ng-repeat-start="user in all_users.results | filter:query">
+          <a href="/users/{{ user.username }}">
+            <img ng-src="{{ user.avatar }}" width="40px" height="40px" class="ava" />
+          </a>
+          <a href="/users/{{ user.username }}"><p class="username">{{ user.username }}</p></a>
+        </div>
+        <span ng-repeat-end></span>
+      </div>
+    {% endverbatim %}
+    </div>
+  </body>
+</html>

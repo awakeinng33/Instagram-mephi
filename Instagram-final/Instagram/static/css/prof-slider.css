@@ -1,0 +1,145 @@
+#blockLeftTopTop,#blockLeftTopBottom,#blockLeftBottomBottom,#blockLeftBottomTop,#blockLeftCenterTopTop,#blockLeftCenterTopBottom,#blockLeftCenterBottomBottom,#blockLeftCenterBottomTop,#blockRightTopTop,#blockRightTopBottom,#blockRightBottomTop, #blockRightBottomBottom
+{
+    width: 196px;
+    height: 196px;
+    border: 1px solid grey;
+    background-color: white;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.blockFoto
+{
+
+    height:100%;
+    width:auto;
+}
+
+
+#blockLeftTopBottom
+{
+    position: absolute;
+    top: 0px;
+    display: none;
+
+}
+
+#blockLeftCenterTopBottom
+{
+    position: absolute;
+    top: 0px;
+    display: none;
+
+}
+
+#blockLeftBottomBottom
+{
+    position: absolute;
+    top: 200px;
+    display: none;
+}
+#blockLeftBottomTop
+{
+    position: absolute;
+    top: 200px;
+}
+
+#blockLeftCenterBottomBottom
+{
+    position: absolute;
+    top: 200px;
+    display: none;
+}
+#blockLeftCenterBottomTop
+{
+    position: absolute;
+    top: 200px;
+}
+
+#blockLeft
+{
+    height: 400px;
+    width: 200px;
+}
+#blockLeftCenter
+{
+    height: 400px;
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    left: 200px;
+
+}
+#blockCenter
+{
+    height: 396px;
+    width: 396px;
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    border: 1px grey solid;
+    background-color: white;
+    overflow: hidden;
+
+
+}
+
+#blockCenterTop
+{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+#blockCenterBottom
+{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    cursor: pointer;
+}
+
+#blockRight
+{
+    height: 400px;
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    left: 800px;
+}
+
+#blockRightTopTop
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#blockRightTopBottom
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+#blockRightBottomTop
+ {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+ }
+
+#blockRightBottomBottom
+ {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    display: none;
+ }

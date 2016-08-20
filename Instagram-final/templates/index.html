@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Instagram</title>
+    <meta name="" content="">
+    <link rel ="stylesheet" href="{% static 'css/style.css' %}"/>
+  </head>
+  <body>
+    <div id="main">
+      <div id="entrance">
+        <a href="/api/auth">Войти</a>
+      </div>
+      <div id="registr">
+        <a href="/register">Регистрация</a>
+      </div>
+      <div id="nexus">
+        <img alt="nexus_5" src="{% static 'images/Nexus5.png' %}"/>
+        <div id="back_nexus" >
+          <img id="back"  src="{% static 'images/back.png' %}" height="400px"/>
+        </div>
+      </div>
+      <div id="textblock">
+        <div id="title">
+          <img alt="inst_logo" id="inst_logo" src="{% static "images/instlogo.png" %}" height="90px"/>
+        </div>
+        <div id="text">
+          <p id="texttitle"><b>Запечатляйте и <br /> поделитесь <br /> моментами из <br /> жизни</b></p>
+          <p id="texttext">Instagram это <b>быстрый</b>, <b>красивый</b> и <b>интересный</b> способ поделиться событиями из жизни с семьей и друзьями.<br /><br /> Сделайте фото или видео и опубликуйте на Instagram-mephi — что может быть проще? Это новое видение мира.<br /><br />Ах, да, мы мы говорили, что это бесплатно?</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+.fotoblock
+{
+	width:190px;
+    height: 190px;
+	position: relative;
+    left: -17px;
+    top: -35px;
+	z-index: 3;
+
+}
+
+.blockfoto
+{
+
+    height:200px;
+}
+.fotoframe
+{
+    height: 190px;
+    width:190px;
+    background-color: white;
+    background-position: 80px 80px;
+}
+.foto
+{
+    max-height: 190px;
+    max-width: 190px;
+}
+
+#refresh
+{
+    height:50px;
+	width:50px;
+	position: relative;
+	top: -150px;
+	left:100px;
+    border-left: 1px solid #FFB800;
+	border-right: 1px solid #FFB800;
+	cursor: pointer;
+}
+
+#refresh:hover
+{
+    background-color:#FDD995;
+}
+
+.morepoints
+{
+    margin-top: 4px;
+    margin-left: 2px;
+}
+
+#refreshpic
+{
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+#menu
+{
+position: relative;
+top:-152px;
+left:800px;
+}

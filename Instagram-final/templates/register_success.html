@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="{% static "css/register.css" %}">
+  </head>
+  <body>
+    {% verbatim %}
+    <div id="main">
+      <div id="header">
+        <div id="headerblock">
+          {% endverbatim %}
+          <div id="logo">
+            <a href="/">
+              <img src="{% static "images/instmephi.png" %}" width="180px" id="instmephi">
+            </a>
+          </div>
+        </div>
+      </div>
+      <p>
+        <h3 id="successtext">Для завершения регистрации перейдите по ссылке, которую мы отправили вам на почту!</h3>
+      </p>
+    </div>
+  </body>
+</html>

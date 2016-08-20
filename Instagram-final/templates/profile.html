@@ -1,0 +1,350 @@
+{%  load staticfiles %}
+<!DOCTYPE HTML>
+<html ng-cloak ng-app="appProfile">
+  <head>
+    <title>Instagram</title>
+    <meta name="" content="" charset="cp-1251">
+    <link rel="stylesheet" href="{% static "css/upload-files.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/prof-style.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/modal.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/modal-delete-photo.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/prof-slider.css" %}"/>
+    <script src="{% static "js/angular source/angular-file-upload-shim.min.js" %}"></script>
+    <script src="{% static "js/angular source/angular.min.js" %}"></script>
+    <script src="{% static "js/angular source/angular-file-upload.min.js" %}"></script>
+    <script src="{% static "js/jquery-1.11.2.js" %}"></script>
+    <script src="{% static "js/angular source/angular-route.js" %}"></script>
+    <script src="{% static "js/angular source/angular-resource.min.js" %}"></script>
+    <script  src="{% static "js/app.profile.js" %}" ></script>
+    <script  src="{% static "js/app.api.js" %}" ></script>
+    <script  src="{% static "js/app.auth.js" %}" ></script>
+  </head>
+  <body>
+    {% verbatim %}
+    <div id="main" ng-controller="profileController" >
+      {% endverbatim %}
+      <div id="header">
+        <div id="headerblock">
+          <a href="/feed" id="buttonhome">
+            <img src="{% static "images/home.png" %}" alt="home" width="30px"  id="homepic"/>
+          </a>
+          <div id="logo">
+            <a href="/">
+              <img src="{% static "images/instmephi.png" %}" width="180px" id="instmephi">
+            </a>
+          </div>
+            {% verbatim %}
+            <a  id="buttonprofile" >
+              {% endverbatim %}
+              <p id="buttonprofiletext">{{ usercome.username }}</p>
+              {% verbatim %}
+              <img ng-src="{{ auth_user.avatar }}" width="30px" height="30px" id="miniava"/>
+              {% endverbatim %}
+            </a>
+            <div id="menu">
+              {% if usercome.username != us.username %}
+              <a href="/users/{{ usercome.username }}"><p class="menu_point">Посмотреть профиль</p></a>
+              {% endif %}
+              <a href="/search" ><p class="menu_point">Найти пользователя</p></a>
+              <a href="/allphotos" ><p class="menu_point">Лента фотографий</p></a>
+              <a href="#"  ng-click="logout()"><p class="menu_point">Выйти</p></a>
+            </div>
+          </div>
+        </div>
+        <div id="userblock">
+          <div id="fotosliderblock">
+            {% verbatim %}
+            <div id="fotoslider" ng-if="photos_length > 13" >
+              <div id="blockLeft">
+                <div id="blockLeftTopTop" align="center">
+                  <img ng-src="{{ photos[0].image }}" ng-click="modal(photos[0])" class="blockFoto" />
+                </div>
+                <div id="blockLeftTopBottom" align="center">
+                  <img ng-src="{{ photos[1].image }}"  ng-click="modal(photos[1])" class="blockFoto" />
+                </div>
+                <div id="blockLeftBottomTop" align="center">
+                  <img ng-src="{{ photos[2].image }}"  ng-click="modal(photos[2])" class="blockFoto" />
+                </div>
+                <div id="blockLeftBottomBottom" align="center">
+                  <img ng-src="{{ photos[3].image }}"  ng-click="modal(photos[3])" class="blockFoto" />
+                </div>
+              </div>
+              <div id="blockLeftCenter">
+                <div id="blockLeftCenterTopTop" align="center">
+                  <img ng-src="{{ photos[4].image }}"  ng-click="modal(photos[4])" class="blockFoto" />
+                </div>
+                <div id="blockLeftCenterTopBottom" align="center">
+                  <img ng-src="{{ photos[5].image }}"  ng-click="modal(photos[5])" class="blockFoto" />
+                </div>
+                <div id="blockLeftCenterBottomTop" align="center">
+                  <img ng-src="{{ photos[6].image }}"  ng-click="modal(photos[6])" class="blockFoto" />
+                </div>
+                <div id="blockLeftCenterBottomBottom" align="center">
+                  <img ng-src="{{ photos[7].image }}"  ng-click="modal(photos[7])" class="blockFoto" />
+                </div>
+              </div>
+              <div id="blockCenter" >
+                <div id="blockCenterTop" align="center">
+                  <img ng-src="{{ photos[8].image }}"  ng-click="modal(photos[8])" class="blockFoto" />
+                </div>
+                <div id="blockCenterBottom" align="center">
+                  <img ng-src="{{ photos[9].image }}"  ng-click="modal(photos[9])" class="blockFoto" />
+                </div>
+              </div>
+              <div id="blockRight" >
+                <div id="blockRightTopTop" align="center">
+                  <img ng-src="{{ photos[10].image }}"  ng-click="modal(photos[10])" class="blockFoto" />
+                </div>
+                <div id="blockRightTopBottom" align="center" >
+                  <img ng-src="{{ photos[11].image }}"  ng-click="modal(photos[11])" class="blockFoto" />
+                </div>
+                <div id="blockRightBottomTop" align="center">
+                  <img ng-src="{{ photos[12].image }}"  ng-click="modal(photos[12])" class="blockFoto" />
+                </div>
+                <div id="blockRightBottomBottom" align="center">
+                  <img ng-src="{{ photos[13].image }}"  ng-click="modal(photos[13])" class="blockFoto" />
+                </div>
+              </div>
+            {%  endverbatim %}
+            </div>
+          </div>
+          <div id="userinfo">
+            <div id="info">
+              {% if us.following.count == 0 %}
+              <div class="buttonsinfo" id="following">
+                <p class="amount">Подписки:<br /><span class="amountnumber">{{ us.following.count}}</span></p>
+              </div>
+              {% else %}
+              <a href="/following/{{ us.username }}"><div class="buttonsinfo" id="following">
+              <p class="amount">Подписки:<br /><span class="amountnumber">{{ us.following.count}}</span></p>
+              </div></a>
+              {% endif %}
+              {% if us.followers.count == 0 %}
+              <div class="buttonsinfo" id="followers">
+                <p class="amount">Подписчики:<br /><span class="amountnumber" id="followerscount">{{ us.followers.count}}</span></p>
+              </div>
+              {% else %}
+              <a href="/followers/{{ us.username }}"><div class="buttonsinfo" id="followers">
+                <p class="amount">Подписчики:<br /><span class="amountnumber" id="followerscount">{{ us.followers.count}}</span></p>
+              </div></a>
+              {% endif %}
+              <div class="buttonsinfo" id="posts">
+                <p class="amount">Публикации:<br /><span class="amountnumber" id="fotocount">{{ us.photos.count}}</span></p>
+              </div>
+            </div>
+            <div id="avatar">
+              {% verbatim %}
+              <div ng-file-drop="onFileSelect($files,true)" ng-file-drag-over-class="optional-css-class-name-or-function" id="dropavatar" ng-show="dropSupported" title="Бросай фото сюда!">
+                <img  ng-src="{{ user.avatar }}" width="121px" height="115px" id="fotoavatar"/>
+              </div>
+              <div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">
+              </div>
+              {% endverbatim %}
+              {% if us.username == usercome.username %}
+              <div class="buttonchange">
+                <div id="addfotobutton">Добавить<br />фотографию</div>
+                <input type="file" ng-file-select="onFileSelect($files,false)">
+              </div>
+              {% elif not isFollow %}
+              {% verbatim %}
+              <a  ng-click="AddFollowing()" id="signinclass">
+                <div class="buttonchange" ><span id="follow">Подписаться</span></div>
+              </a>
+              {% endverbatim %}
+              {% else %}
+              {% verbatim %}
+              <a  ng-click="DeleteFollowing()" id="signoutclassref">
+                <div class="buttonchange" id="signoutclass"><span id="signout">Отписаться</span></div>
+              </a>
+              {% endverbatim %}
+              {% endif %}
+            </div>
+            <div id="usernameblock">
+              <p id="username"><b>{{ us.username }}</b></p><span class="testspan" id="user_id" ng-hide="true">{{ us.id }}</span>
+            </div>
+          </div>
+          {% verbatim %}
+          <div id="userfoto"  ng-init="i=0" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
+            <div class="blockfoto"  ng-repeat-start="photo in new_photos ">
+              <span id="{{ photo.id }}" ng-hide="true">{{ us.id }}</span>
+              <div class="fotoblock">
+                <div class="fotoframe">
+                  <img class="foto"  ng-src="{{ photo.image }}" ng-click="modal(photo,photo_likes[photo.id],photo_dislikes[photo.id])">
+                </div>
+              </div>
+              <div class="fotoinfo">
+                <p class="fotodata">{{ photo.data}}</p>
+                <div class="fotoinfoblock">
+                  {% endverbatim %}
+                  <img class="likepic" src="{% static "images/like.png" %}" width="15px"  />
+                  {% verbatim %}
+                  <p class="likecount" >{{ photo_likes[photo.id] }}</p>
+                  {% endverbatim %}
+                  <img class="dislikepic" src="{% static "images/dislike.png" %}" width="15px"  />
+                  {% verbatim %}
+                  <p class="dislikecount"  >{{ photo_dislikes[photo.id] }}</p>
+                  {% endverbatim %}
+                  <img class="commentpic" src="{% static "images/coment.png" %}" width="15px"  />
+                  {% verbatim %}
+                  <p class="commentcount" >{{ photo_comments[photo.id] }}</p>
+                  {% endverbatim %}
+                </div>
+                {% if us.username == usercome.username %}
+                {% verbatim %}
+                <a href="#" ng-click="modalPhotoDelete(photo.id)" >
+                  {% endverbatim %}
+                  <img src="{% static "images/delete.png" %}" alt="deletebutton" width="15px" class="deletebutton"/>
+                </a>
+                {% endif %}
+              </div>
+            </div>
+            {% verbatim %}
+            <span ng-repeat-end></span>
+            {% endverbatim %}
+            {% verbatim %}
+            <div class="blockfoto" ng-repeat-start="photo in photos ">
+              <span id="{{ photo.id }}" ng-hide="true">{{ us.id }}</span>
+              <div class="fotoblock">
+                <div class="fotoframe">
+                  <img class="foto"  ng-src="{{ photo.image }}" ng-click="modal(photo,photo_likes[photo.id],photo_dislikes[photo.id])">
+                </div>
+              </div>
+              <div class="fotoinfo">
+                <p class="fotodata">{{ photo.data}}</p>
+                <div class="fotoinfoblock">
+                  {% endverbatim %}
+                  <img class="likepic" src="{% static "images/like.png" %}" width="15px"  />
+                  {% verbatim %}
+                  <p class="likecount" ng-init="photo_likes[photo.id] = photo.likes">{{ photo_likes[photo.id] }}</p>
+                  {% endverbatim %}
+                  <img class="dislikepic" src="{% static "images/dislike.png" %}" width="15px"  />
+                  {% verbatim %}
+                  <p class="dislikecount" ng-init="photo_dislikes[photo.id] = photo.dislikes" >{{ photo_dislikes[photo.id] }}</p>
+                  {% endverbatim %}
+                  <img class="commentpic" src="{% static "images/coment.png" %}" width="15px"  />
+                  {% verbatim %}
+                  <p class="commentcount" ng-init="photo_comments[photo.id] = photo.comment_count">{{ photo_comments[photo.id] }}</p>
+                  {% endverbatim %}
+                </div>
+                {% if us.username == usercome.username %}
+                {% verbatim %}
+                <a href="#" ng-click="modalPhotoDelete(photo.id)" >
+                  {% endverbatim %}
+                  <img src="{% static "images/delete.png" %}" alt="deletebutton" width="15px" class="deletebutton"/>
+                </a>
+                {% endif %}
+              </div>
+            </div>
+            {% verbatim %}
+            <span ng-repeat-end></span>
+            {% endverbatim %}
+          </div>
+        </div>
+        <!-- Тело модального окна -->
+        {% verbatim %}
+        <div class="body2" >
+          <!-- Кнопка закрыть в правом углу -->
+          <div class="close"></div>
+          <!-- Контейнер с контентом внутри модального окна -->
+          <div class="infog">
+            <div id="fotoBigBlock">
+              <img id="imagemodal" ng-src="{{ bigPhoto.image }}" >
+            </div>
+            <div id="bigFotoInfo">
+              <div id="bigFotoUserInfo">
+                <img id="bigFotoUserInfoAva" ng-src="{{ bigPhoto.user.avatar }}" width="40px" height="40px"/>
+                {% endverbatim %}
+                <p id="bigFotoUserInfoUsername">{{ us.username }}</p>
+                {% verbatim %}
+                <p id="bigFotoUserInfoData"></p>
+              </div>
+              <div class="bigFotoLikes" id="{{ bigPhoto.id }}">
+                {% endverbatim %}
+                <img id="like" src="{% static "images/like2.png" %}" ng-click="addLike(bigPhoto.id,0)" width="25px" height="25px">
+                {% verbatim %}
+                <p class="likecounttext"> Понравилось:<span id="likecount"  ng-bind="photo_likes[bigPhoto.id]" ></span></p>
+                {% endverbatim %}
+                <img id="dislike" src="{% static "images/dislike2.png" %}" ng-click="addLike(bigPhoto.id,1)" width="25px" height="25px">
+                {% verbatim %}
+                <p class="dislikecounttext"> Не понравилось :<span id="dislikecount"  ng-bind="photo_dislikes[bigPhoto.id]"></span></p>
+                <div class="more" ng-click="openmore(bigPhoto.id)">
+                  {% endverbatim %}
+                  <img src="{% static "images/points2.png" %}" class="morepoints">
+                  {% verbatim %}
+                </div>
+              </div>
+              <div class="alllikes">
+                <table>
+                  <tr>
+                    <td>
+                      <p class="moretitle">Понравилось:</p>
+                    </td>
+                    <td>
+                      <p class="moretitle">Не понравилось:</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="moreleft">
+                      <p class="likesname" >
+                        <a class="userref" href="/users/{{ name.username }}" ng-click="RedirectToUserProfile(name.username)" ng-repeat="name in likename[bigPhoto.id]">{{ name.username }}<span ng-if="$index!=likename[bigPhoto.id].length-1">,</span></a>
+                      </p>
+                    </td>
+                    <td class="moreright">
+                      <p class="likesname" >
+                        <a class="userref" href="/users/{{ name.username }}" ng-click="RedirectToUserProfile(name.username)" ng-repeat="name in dislikename[bigPhoto.id]">{{ name.username }}<span ng-if="$index!=dislikename[bigPhoto.id].length-1">,</span></a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="allcomments" id="allcomments{{bigPhoto.id}}">
+                <div class="comment" ng-repeat-start="comment in all_comments_photo.results" ng-if="comment.image.id == bigPhoto.id">
+                  <a href="/users/{{ comment.username }}" ng-click="RedirectToUserProfile(comment.username)"><img ng-src="{{comment.user.avatar}}" width="25px" height="25px" alt="photosender" class="photocommentsender"/></a>
+                  <p class="commenttext">
+                    <a href="/users/{{ comment.username }}" ng-click="RedirectToUserProfile(comment.username)" class="usref"><span class="sendercommentname"  id="commentblock">{{ comment.username }}:</span></a>{{ comment.comment }}
+                  </p>
+                  <p class="commentdate">{{ comment.data }}</p>
+                </div>
+                <span ng-repeat-end></span>
+                <div class="comment" ng-repeat-start="comment in new_comments" ng-if="comment.image.id == bigPhoto.id">
+                  <a href="/users/{{ comment.username }}" ng-click="RedirectToUserProfile(comment.username)"> <img ng-src="{{comment.user.avatar}}" width="25px" height="25px" alt="photosender" class="photocommentsender"/></a>
+                  <p class="commenttext">
+                    <a href="/users/{{ comment.username }}" ng-click="RedirectToUserProfile(comment.username)" class="usref"><span class="sendercommentname"  id="commentblock">{{ comment.username }}:</span></a>{{ comment.comment }}
+                  </p>
+                  <p class="commentdate">{{ comment.data }}</p>
+                </div>
+                <span ng-repeat-end></span>
+              </div>
+              <div class="commentfield">
+                <form id="commentform" name="test" method="post" enctype="multipart/form-data" ng-submit="addComment(bigPhoto.id,c,auth_user)">
+                  <input id="comment_text"  type="text" ng-model="c"  placeholder="Написать комментарий..." maxlength="200"/>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Нижняя часть модального окна (не обязательно) -->
+          <div class="footermodal"></div>
+          <!-- Туман перекрывающий основной контент при открытии модального окна -->
+          <div class="fog"></div>
+          {% endverbatim %}
+        </div>
+        <!-- окно при удалении картинки -->
+        {% verbatim %}
+        <div class="body3" >
+          <!-- Кнопка закрыть в правом углу -->
+          <!-- Контейнер с контентом внутри модального окна -->
+          <div class="infog3">
+            <p> <h1 id="delete-photo-header">Удалить эту фотографию?</h1>
+              <input type="button" id="input-delete"  class="input_modal_delete" value="Да">
+              <input type="button" id="input-close" class="input_modal_delete" value="Нет">
+            </p>
+          </div>
+          <!-- Нижняя часть модального окна (не обязательно) -->
+          <div class="footermodal3"></div>
+          <!-- Туман перекрывающий основной контент при открытии модального окна -->
+          <div class="fog3"></div>
+          {% endverbatim %}
+        </div>
+      </div>
+    </body>
+</html>

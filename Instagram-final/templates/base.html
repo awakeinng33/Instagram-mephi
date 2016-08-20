@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static "css/privatemessages.css" %}">
+<script type="text/javascript" src="{% static "js/jquery-1.11.2.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jstz.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/privatemessages.js" %}"></script>
+{% block head %}{% endblock %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{% block title %}Личные сообщения{% endblock title %}</title>
+</head>
+<body>
+{% block content %}{% endblock content %}
+</body>
+</html>

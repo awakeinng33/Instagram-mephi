@@ -1,0 +1,544 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	line-height: 15px;
+}
+body
+{
+	margin: auto;
+	font-family: Arial, sans-serif;
+    width: 100%;
+    background: linear-gradient(to bottom, #FBEA96, #CDCDCD) no-repeat;
+    background-attachment: fixed;
+}
+
+#main
+{
+	width: 100%;
+
+	height: auto ;
+	min-width: 1000px;
+
+	/*background-color:#F7F8E0;*/
+	
+	
+}
+
+#header
+{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #FFB800;
+	background: linear-gradient(to top, #FBCD71, #F7BA42);
+	/*background: linear-gradient(to top, #FBCD71, #FF7100);*/
+	-webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
+	-moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	
+}
+
+#userblock
+{
+	width: 1000px;
+	height: auto;
+	min-height: 400px;
+	
+	margin: auto;
+	margin-top: 30px;
+	border:1px solid #FBFFD0;
+	background-color: #FBFFE7 ;
+	-webkit-box-shadow:0px 5px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px 5px 5px rgba(0,0,0,0.5);
+	box-shadow: 0px 5px 5px  rgba(0,0,0,0.5);
+	
+	
+	
+	
+}
+
+#fotoslider
+{
+	
+	width: 100%;
+	min-height: 100px;
+	height: auto;
+	max-height: 400px;
+
+    position: relative;
+}
+#fotosliderblock
+{
+    width: 100%;
+	min-height: 100px;
+	height: auto;
+	max-height: 400px;
+    position: relative;
+}
+#userinfo
+{
+	
+	width: 100%;
+	height: 120px;
+	border-top: solid #BFBFBF 1px;
+	border-bottom: solid #BFBFBF 1px;
+	-webkit-box-shadow:0px 4px rgba(0,0,0,0.2);
+	-moz-box-shadow:0px 4px rgba(0,0,0,0.2);
+	box-shadow: 0 0 4px rgba(0,0,0,0.2);
+	background-color: #FDD995;
+	
+}
+
+#userfoto
+{
+	
+	width: 100%;
+	min-height: 200px;
+	height: auto;
+	overflow: hidden;
+	
+}
+
+#info
+{
+	
+	height: 55px;
+	width: 300px;
+	position: relative;
+	top: 20px;
+	left: 650px;
+	border: 2px solid #BFBFBF;
+	background-color: #FDFFF2;
+	border-radius:15px;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.2);
+	box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+.buttonsinfo
+{
+	width:97px;
+	height: 100%;
+	float: left;
+	
+	
+}
+
+.amount
+{
+	
+	text-align: center;
+	margin-top: 8px;
+	font-weight:bold;
+	color:grey;
+    line-height: 18px;
+    font-size: 15px;
+}
+
+.amountnumber
+{
+	font-weight:bold;
+	color: black;
+}
+a
+{
+	text-decoration: none;
+    color: black;
+}
+
+a:visited
+{
+    color: black;
+}
+
+#avatar
+{
+	
+	width: 135px;
+	height: 165px;
+	position: relative;
+	top: -130px;
+	left: 30px;
+	border:2px solid #BFBFBF;
+	border-radius: 10px;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.2);
+	box-shadow: 0 0 4px rgba(0,0,0,0.2);
+	background-color: #FDFFF2;
+}
+
+#usernameblock
+{
+	
+	width: 300px;
+	height: 50px;
+	position: relative;
+	top: -205px;
+	left: 170px;
+}
+#username
+{
+	font-size: 20px;
+	padding-left:30px;
+	
+}
+
+.buttonchange
+{
+	
+	width: 121px;
+	height: 38px;
+	border:1px solid #BFBFBF;
+	border-top: 0px;
+	text-align: center;
+    margin-top: -2px;
+	margin-left: 6px;
+    position: relative;
+	border-radius: 0px 0px 10px 10px;
+	background-color: #5FEB3B;
+	font-weight:600;
+	color:black;
+	font-size:15px;
+    line-height: 18px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#addfotobutton
+{
+    font-weight:600;
+	color:black;
+	font-size:15px;
+    line-height: 18px;
+    width: 100%;
+	height: 100%;
+
+}
+
+.buttonchange input[type=file]{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(50);
+    letter-spacing: 20em;     /* IE 9 fix */
+    -ms-transform: scale(50); /* IE 9 fix */
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+#follow
+{
+	position:relative;
+	top:10px;
+	
+}
+
+#signout
+{
+	position:relative;
+	top:10px;
+	
+}
+
+#signoutclass
+{
+	background-color:red;
+}
+.buttonchange:hover
+{
+	background-color: #2DD700;
+
+}
+#signoutclass:hover
+{
+	background-color:yellow;
+}
+.blockfoto
+{
+	
+	width:198px;/*200px*/
+	height:250px;
+	float: left;
+
+	
+}
+.foto
+{
+	
+	max-height: 150px;
+	max-width: 150px;
+	min-height: 80px;
+	min-width: 80px;
+	display:block; 
+ 	margin: auto;
+ 	border:none;
+}
+
+#followers
+{
+    border-left:1px solid #BFBFBF;
+	border-right:1px solid #BFBFBF;
+	
+}
+
+#followers:hover
+{
+	background-color: #FBFFE7;
+}
+#following
+{
+	border-radius: 15px 0px 0px 15px;
+}
+
+#following:hover
+{
+	background-color: #FBFFE7;
+}
+
+#fotoavatar
+{
+	border:1px #BFBFBF solid;
+	margin-left: 6px;
+	margin-top:4px;
+	border-radius: 10px 10px 0px 0px;
+}
+
+#buttonhome
+{
+	display: block;
+	height:50px;
+	width:50px;
+	border-left: 1px solid #FFB800;
+	border-right: 1px solid #FFB800;
+	
+}
+#buttonhome:hover
+{
+	background-color:#FDD995;
+}
+#logo
+{
+	height:50px;
+	width:300px;
+	position: relative;
+	top: -52px;
+	left:350px;
+	
+}
+
+#buttonprofile
+{
+	display: block;
+	height:50px;
+	width:170px;
+	position: relative;
+	top: -100px;
+	left:830px;
+	border-left: 1px solid #FFB800;
+	border-right: 1px solid #FFB800;
+	cursor: pointer;
+}
+
+#buttonprofile:hover~#menu,#menu:hover
+{
+    display: block;
+}
+
+#buttonprofile:hover
+{
+	background-color:#FDD995;
+	text-decoration:underline;
+	color:black;
+
+}
+
+#menu
+{
+    width: 200px;
+    height:140px;
+    position: relative;
+    top:-102px;
+    left:800px;
+    display: none;
+    z-index:4;
+}
+
+.menu_point
+{
+    border: 1px solid #FFB800;
+    margin-top: 2px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    background-color:#FBFFE7;
+    border-radius: 7px;
+}
+
+.menu_point:hover
+{
+    background-color: #FDD995;
+}
+#headerblock
+{
+	height:50px;
+	width:1000px;
+	margin:auto;
+}
+
+#homepic
+{
+	margin-left: 11px;
+	margin-top: 11px;
+}
+
+#instmephi
+{
+	margin-top:5px; /*#8b3535*/
+	margin-left:50px;
+}
+
+#buttonprofiletext
+{
+	padding-top:17px;
+	text-align:right;
+	padding-right:9px;
+	font-size: 15px;
+	font-weight: bold;
+	color:black;
+}
+
+#miniava
+{
+	margin-top:-25px;
+	margin-left:15px;
+	border: 1px solid #BFBFBF;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.fotoframe
+{
+
+	border: 1px solid #BFBFBF;
+	width: 150px;
+	height: 150px;
+	background-color: #FBFFE7 ;
+	display: table-cell;
+	background-image: url('../images/load.gif');
+	background-repeat: no-repeat;
+	background-position: 60px 60px;
+	vertical-align: middle;
+}
+.fotoblock
+{
+	width:150px;
+	margin-left: 25px;
+	margin-top: 40px;
+	position: relative;
+	z-index: 3;
+
+}
+.fotoinfo
+{
+	border: 1px #FFB800 solid;
+	width: 160px;
+	height: 160px;
+	position: relative;
+	top: -155px;
+	left: 20px;
+	background-color: #FDD995;
+	z-index: 2;
+	
+}
+
+.fotoblock:hover
+{
+    cursor: pointer;
+}
+.fotoblock:hover~.fotoinfo,.fotoinfo:hover
+{
+	transform: scale(1.07,1.27);
+    -webkit-transform: scale(1.07,1.27);
+    -o-transform: scale(1.07,1.27);
+    -moz-transform: scale(1.07,1.27);
+    -ms-transform: scale(1.07,1.27);
+    cursor: pointer;
+}
+
+.fotodata
+{
+	margin-top: 2px;
+	margin-left: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	color: grey;
+}
+
+.likepic
+{
+	position: absolute;
+	top: 2px;
+	left: 25px;
+}
+
+.likecount
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: grey;
+	position: absolute;
+	top: 2px;
+	padding-left: 45px;
+	
+}
+
+.commentpic
+{
+	position: absolute;
+	top: 2px;
+	left: 95px;
+	
+}
+
+.commentcount
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: grey;
+	position: absolute;
+	top: 2px;
+	padding-left: 115px;
+}
+.fotoinfoblock
+{
+	height: 20px;
+	position: relative;
+	top: 121px;
+}
+
+.deletebutton
+{
+	position: relative;
+	top: -35px;
+	left: 140px;
+}
+
+.dislikecount
+{
+    font-size: 10px;
+	font-weight: bold;
+	color: grey;
+	position: absolute;
+	top: 2px;
+	padding-left: 80px;
+}
+
+.dislikepic
+{
+    position: absolute;
+	top: 2px;
+	left: 60px;
+}

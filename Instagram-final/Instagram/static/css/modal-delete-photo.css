@@ -1,0 +1,94 @@
+
+/* Устанавливаем свойства тумана */
+	.fog3
+	{
+	    width: 100%;
+	    background-color: #c0c0c0;
+	    opacity: 0.5;
+	    display: none;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	}
+/* Устанавливаем свойства модального окна, в т.ч. прокрутку,
+которая будет отображаться вместо прокрутки для дива .body */
+	.body3
+	{
+	    width: 100%;
+	    height: 100%;
+	    overflow: auto;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    display: none;
+	    z-index: 999;
+	}
+/* Устанавливаем свойства дива, в котором показывается контент модального окна */
+	.infog3
+	{
+	    background: #FBFFE7;
+	    border: 1px solid #FFB800;
+	    width:  350px;
+        height: 150px;
+        position: fixed;
+	    top: 0px;
+        left: 0px;
+        margin: auto;
+	    border-radius:15px;
+	    -moz-border-radius:10px;
+	    -webkit-border-radius:10px;
+	    box-shadow:0px 1px 3px rgba(0,0,0,.75);
+	    -moz-box-shadow:0px 1px 3px rgba(0,0,0,.75);
+	    -webkit-box-shadow:0px 1px 3px rgba(0,0,0,.75);
+	    z-index: 999;
+
+        display: inline-block;
+	}
+
+   .input_modal_delete
+   {
+       width: 70px;
+    height: 40px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #FBCD71;
+
+   }
+
+   .input_modal_delete:hover
+   {
+       background-color: #FBEA96;
+   }
+
+   #delete-photo-header
+   {
+       font-family: "Arial", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+    color: #F7BA42;
+     margin-top: 30px;
+   }
+
+   #input-delete
+   {
+       margin-top: 40px;
+       margin-left: 80px;
+   }
+
+   #input-close
+   {
+       margin-left: 40px;
+   }
+
+
+
+
+
+input:focus
+{
+outline: none;
+border:2px solid #FFB800;
+}

@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html  ng-app="authApp">
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <script src="{% static "js/angular source/angular.min.js" %}"></script>
+    <script src="{% static "js/jquery-1.11.2.js" %}"></script>
+    <script src="{% static "js/angular source/angular-route.js" %}"></script>
+    <script src="{% static "js/angular source/angular-resource.min.js" %}"></script>
+    <script  src="{% static "js/app.api.js" %}" ></script>
+    <script  src="{% static "js/app.auth.js" %}" ></script>
+    <script  src="{% static "js/angular source/autofill-event.js" %}" ></script>
+  </head>
+  <body>
+    <div id="main" ng-controller="authController" ng-init="user='{{user.username}}'">
+      <div id="header">
+        <div id="headerblock">
+          <div id="logo">
+            <a href="/">
+              <img src="{% static "images/instmephi.png" %}" width="180px" id="instmephi">
+            </a>
+          </div>
+        </div>
+      </div>
+      {% verbatim %}
+      <div id="authblock">
+        <div  ng-hide="user">
+          <form enctype="multipart/form-data" ng-submit="login()">
+            <h1 id="label"> Вход в личный кабинет</h1>
+            <div class="form-group">
+              <input class="input" ng-model="username"  required name="username" type="text" placeholder="Имя пользователя:" >
+            </div>
+            <div>
+              <input class="input" ng-model="password" required name="password" type="password" placeholder="Пароль:" >
+            </div>
+            <div>
+              <input class="button" type="submit" value="Войти">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endverbatim %}
+  </body>
+</html>
